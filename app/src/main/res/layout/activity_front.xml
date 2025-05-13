@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.FrontActivity">
+
+    <!-- Top Half -->
+    <LinearLayout
+        android:id="@+id/topHalf"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/beige"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/AppTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono_bold"
+            android:text="c_ON_tact"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="55dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Muhammad Olfat Faiz - 235150700111021"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <!-- Curved Divider -->
+    <ImageView
+        android:id="@+id/curveDivider"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        android:src="@drawable/curve_shape" />
+
+    <!-- Bottom Half -->
+    <LinearLayout
+        android:id="@+id/bottomHalf"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="70dp"
+        android:paddingVertical="30dp">
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Log In"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:strokeColor="@color/blue" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Register"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:strokeColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/infoSignInText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingVertical="5dp"
+            android:text="Other Sign-In Method:"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/otherLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <ImageButton
+                android:id="@+id/btnPhoneLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/circle_background"
+                android:contentDescription="Phone"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_call_24"
+                android:visibility="gone"
+                app:tint="@color/blue" />
+
+
+            <ImageButton
+                android:id="@+id/btnGoogleLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/android_light_rd_na"
+                android:contentDescription="Phone"
+                android:padding="6dp"
+                android:scaleType="centerInside" />
+
+            <ImageButton
+                android:id="@+id/btnAnonymousLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/circle_background"
+                android:contentDescription="Phone"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/round_people_24"
+                app:tint="@color/blue" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,159 @@
+{
+  "project_info": {
+    "project_number": "360019579818",
+    "firebase_url": "https://android-firebase-test-pam-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "android-firebase-test-pam",
+    "storage_bucket": "android-firebase-test-pam.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360019579818:android:23a57ee266bb684af791d3",
+        "android_client_info": {
+          "package_name": "com.example.contactfirebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360019579818-5p65bietclrjcdeu2sb93ub0pp52gtvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.contactfirebaseapp",
+            "certificate_hash": "05d38278dc3e8e2716d3819b9b6016822a5acd19"
+          }
+        },
+        {
+          "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwmkJlxk72RpdFKPEMfzKjyhzC_avL94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360019579818:android:2277f76f650a49cef791d3",
+        "android_client_info": {
+          "package_name": "com.example.firebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360019579818-s60gbcu2jfmqm0pj498teb2t1005hvvc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebaseapp",
+            "certificate_hash": "05d38278dc3e8e2716d3819b9b6016822a5acd19"
+          }
+        },
+        {
+          "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwmkJlxk72RpdFKPEMfzKjyhzC_avL94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360019579818:android:ce9266c9ad6b7d18f791d3",
+        "android_client_info": {
+          "package_name": "com.example.modul_3_praktikum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360019579818-ohcaku5nb3thui9q8fq12m0cctrqco46.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.modul_3_praktikum",
+            "certificate_hash": "05d38278dc3e8e2716d3819b9b6016822a5acd19"
+          }
+        },
+        {
+          "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwmkJlxk72RpdFKPEMfzKjyhzC_avL94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360019579818:android:5d4f7fe87da0f11cf791d3",
+        "android_client_info": {
+          "package_name": "com.example.roomdatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360019579818-mv0mm00r881h4p6asvrei7aulkbcn3hl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roomdatabase",
+            "certificate_hash": "05d38278dc3e8e2716d3819b9b6016822a5acd19"
+          }
+        },
+        {
+          "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwmkJlxk72RpdFKPEMfzKjyhzC_avL94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

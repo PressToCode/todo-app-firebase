@@ -134,14 +134,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email:"
+                android:textColor="@color/black"
                 android:visibility="gone" />
 
             <EditText
                 android:id="@+id/profileEmailField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
                 android:ems="10"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/blue"
                 android:visibility="gone" />
 
             <TextView
@@ -150,6 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Password:"
+                android:textColor="@color/black"
                 android:visibility="gone" />
 
             <EditText
@@ -157,8 +161,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/black"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:textColor="@color/blue"
                 android:visibility="gone" />
 
             <Button

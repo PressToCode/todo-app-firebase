@@ -96,7 +96,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/roboto_mono"
-            android:text="LOGIN_OR_REGISTER" />
+            android:text="LOGIN_OR_REGISTER"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout

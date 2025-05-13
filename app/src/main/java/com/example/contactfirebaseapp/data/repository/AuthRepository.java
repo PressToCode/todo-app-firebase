@@ -29,6 +29,7 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -54,19 +55,19 @@ public class AuthRepository {
                     new ClearCredentialStateRequest(ClearCredentialStateRequest.TYPE_CLEAR_CREDENTIAL_STATE),
                     null,
                     executor,
-                    new CredentialManagerCallback<Void, ClearCredentialException>() {
-                        @Override
-                        public void onResult(Void unused) {
-                            FirebaseUtil.reset();
-                            auth.signOut();
-                            callback.onResult(true);
-                        }
+                        new CredentialManagerCallback<>() {
+                            @Override
+                            public void onResult(Void unused) {
+                                FirebaseUtil.reset();
+                                auth.signOut();
+                                callback.onResult(true);
+                            }
 
-                        @Override
-                        public void onError(@NonNull ClearCredentialException e) {
-                            callback.onResult(false);
+                            @Override
+                            public void onError(@NonNull ClearCredentialException e) {
+                                callback.onResult(false);
+                            }
                         }
-                    }
                 );
     }
 
@@ -111,7 +112,7 @@ public class AuthRepository {
     // GOOGLE ----------------------------
     public static void loginWithGoogle(Context context, Intent intent) {
         FirebaseUtil.getCredentialManager()
-                .getCredentialAsync(context, FirebaseUtil.getGoogleRequest(), null, executor, new CredentialManagerCallback<GetCredentialResponse, GetCredentialException>() {
+                .getCredentialAsync(context, FirebaseUtil.getGoogleRequest(), null, executor, new CredentialManagerCallback<>() {
                     @Override
                     public void onResult(GetCredentialResponse getCredentialResponse) {
                         handleSignIn(getCredentialResponse.getCredential(), context, intent);
@@ -161,7 +162,7 @@ public class AuthRepository {
 
     public static void bindAccount(Context context, String email, String password, result callback) {
         AuthCredential credential = EmailAuthProvider.getCredential(email, password);
-        auth.getCurrentUser().linkWithCredential(credential).addOnCompleteListener(task -> {
+        Objects.requireNonNull(auth.getCurrentUser()).linkWithCredential(credential).addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
                 Toast.makeText(context, "Bind Successful!", Toast.LENGTH_LONG).show();
                 callback.onResult(true);

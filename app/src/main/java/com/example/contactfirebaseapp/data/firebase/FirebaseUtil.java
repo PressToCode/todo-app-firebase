@@ -11,7 +11,6 @@ import androidx.credentials.CredentialManager;
 import androidx.credentials.GetCredentialRequest;
 
 import com.example.contactfirebaseapp.R;
-import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption;
 import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,10 +39,10 @@ public class FirebaseUtil {
                 .build();
 
         // Build Google Request Object
-        GetGoogleIdOption googleIdOption = new GetGoogleIdOption.Builder()
-                .setFilterByAuthorizedAccounts(true)
-                .setServerClientId(context.getString(R.string.firebase_web_client_id))
-                .build();
+//        GetGoogleIdOption googleIdOption = new GetGoogleIdOption.Builder()
+//                .setFilterByAuthorizedAccounts(true)
+//                .setServerClientId(context.getString(R.string.firebase_web_client_id))
+//                .build();
 
         GetSignInWithGoogleOption signInWithGoogleOption = new GetSignInWithGoogleOption
                 .Builder(context.getString(R.string.firebase_web_client_id))

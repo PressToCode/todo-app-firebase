@@ -8,6 +8,7 @@ package com.example.contactfirebaseapp.ui.main;
 
 import static android.view.View.VISIBLE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
@@ -70,9 +71,11 @@ public class ProfileActivity extends AppCompatActivity {
         initializeButtons();
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateUI() {
         FirebaseUser user = FirebaseUtil.getAuth().getCurrentUser();
 
+        assert user != null;
         userIdText.setText(user.getUid());
         nameText.setText(user.getDisplayName());
         emailText.setText(user.getEmail());
@@ -84,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void initializeButtons() {
         // Back Button
         backBtn.setOnClickListener(v -> finish());

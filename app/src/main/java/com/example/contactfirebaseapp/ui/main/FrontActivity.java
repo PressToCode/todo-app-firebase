@@ -64,24 +64,16 @@ public class FrontActivity extends AppCompatActivity {
      */
     private void initializeButtons() {
         // Login
-        loginBtn.setOnClickListener(v -> {
-            startActivity(new Intent(context, AuthActivity.class));
-        });
+        loginBtn.setOnClickListener(v -> startActivity(new Intent(context, AuthActivity.class)));
 
         // Register
-        registerBtn.setOnClickListener(v -> {
-            startActivity(new Intent(context, AuthActivity.class).putExtra("register", ""));
-        });
+        registerBtn.setOnClickListener(v -> startActivity(new Intent(context, AuthActivity.class).putExtra("register", "")));
 
         // Google Login
-        googleLoginBtn.setOnClickListener(v -> {
-            AuthRepository.loginWithGoogle(context, goToMainPage());
-        });
+        googleLoginBtn.setOnClickListener(v -> AuthRepository.loginWithGoogle(context, goToMainPage()));
 
         // Anonymous Login
-        anonymousLoginBtn.setOnClickListener(v -> {
-            AuthRepository.loginAnonymous(context, goToMainPage());
-        });
+        anonymousLoginBtn.setOnClickListener(v -> AuthRepository.loginAnonymous(context, goToMainPage()));
     }
 
     // Redirector

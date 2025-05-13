@@ -5,6 +5,7 @@
  */
 package com.example.contactfirebaseapp.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
-    private List<Contact> contactList;
+    private final List<Contact> contactList;
     private final Context context;
     private final redirector redirect;
     private final DatabaseReference reference;
@@ -61,7 +62,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             intent.putExtra("phone", contact.getPhone());
 
             context.startActivity(intent);
-        };
+        }
 
         void onContactDelete(Contact contact, int pos) {
             new AlertDialog.Builder(context)
@@ -75,9 +76,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                     })
                     .setNegativeButton("No", null)
                     .show();
-        };
+        }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void toggleDeleteMode() {
         deleteMode = !deleteMode;
         notifyDataSetChanged();

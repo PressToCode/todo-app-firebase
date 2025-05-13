@@ -10,6 +10,7 @@ package com.example.contactfirebaseapp.ui.main;
 
 import static android.view.View.VISIBLE;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -90,6 +91,7 @@ public class ContactOperationActivity extends AppCompatActivity {
         submitBtn.setVisibility(VISIBLE);
     }
 
+    @SuppressLint("SetTextI18n")
     private void initializeButtons() {
         // Only attach when update mode
         if(updateMode) {

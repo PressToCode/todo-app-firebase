@@ -7,6 +7,7 @@ package com.example.contactfirebaseapp.data.repository;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,26 +49,31 @@ public class AuthRepository {
     }
 
     // Logout ------------------
-    public static void logout(result callback) {
-        FirebaseUtil.getCredentialManager()
-                .clearCredentialStateAsync(
-                    FirebaseUtil.getClearCredentialStateRequest(),
-                    null,
-                    executor,
-                        new CredentialManagerCallback<>() {
-                            @Override
-                            public void onResult(Void unused) {
-                                FirebaseUtil.reset();
-                                auth.signOut();
-                                callback.onResult(true);
-                            }
+    public static void logout(Context context, result callback) {
+        new AlertDialog.Builder(context)
+                .setTitle("Log-Out")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton("Yes", (dialog, which) -> FirebaseUtil.getCredentialManager()
+                    .clearCredentialStateAsync(
+                            FirebaseUtil.getClearCredentialStateRequest(),
+                            null,
+                            executor,
+                            new CredentialManagerCallback<>() {
+                                @Override
+                                public void onResult(Void unused) {
+                                    FirebaseUtil.reset();
+                                    auth.signOut();
+                                    callback.onResult(true);
+                                }
 
-                            @Override
-                            public void onError(@NonNull ClearCredentialException e) {
-                                callback.onResult(false);
+                                @Override
+                                public void onError(@NonNull ClearCredentialException e) {
+                                    callback.onResult(false);
+                                }
                             }
-                        }
-                );
+                    ))
+                .setNegativeButton("No", null)
+                .show();
     }
 
     // End of Logout -----------

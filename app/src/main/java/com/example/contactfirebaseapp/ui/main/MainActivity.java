@@ -6,10 +6,8 @@
 
 package com.example.contactfirebaseapp.ui.main;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -81,23 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeButtons() {
         // Back Button - Log Out
-        backButton.setOnClickListener(v -> {
-            new AlertDialog.Builder(this)
-                .setTitle("Log-Out")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    AuthRepository.logout(success -> {
-                        if (success) {
-                            finish();
-                            return;
-                        }
+        backButton.setOnClickListener(v -> AuthRepository.logout(context, success -> {
+            if (success) {
+                finish();
+                return;
+            }
 
-                        Toast.makeText(context, "Logout Failed", Toast.LENGTH_LONG).show();
-                    });
-                })
-                .setNegativeButton("No", null)
-                .show();
-        });
+            Toast.makeText(context, "Logout Failed", Toast.LENGTH_LONG).show();
+        }));
 
         // Delete Mode Button
         deleteButton.setOnClickListener(v -> {
@@ -113,13 +102,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add Button
-        addButton.setOnClickListener(v -> {
-            startActivity(new Intent(context, ContactOperationActivity.class));
-        });
+        addButton.setOnClickListener(v -> startActivity(new Intent(context, ContactOperationActivity.class)));
 
         // Profile Button
-        profileButton.setOnClickListener(v -> {
-            startActivity(new Intent(context, ProfileActivity.class));
-        });
+        profileButton.setOnClickListener(v -> startActivity(new Intent(context, ProfileActivity.class)));
     }
 }

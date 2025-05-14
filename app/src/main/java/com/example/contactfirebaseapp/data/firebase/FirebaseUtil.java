@@ -7,6 +7,7 @@ package com.example.contactfirebaseapp.data.firebase;
 
 import android.content.Context;
 
+import androidx.credentials.ClearCredentialStateRequest;
 import androidx.credentials.CredentialManager;
 import androidx.credentials.GetCredentialRequest;
 
@@ -25,6 +26,7 @@ public class FirebaseUtil {
     private static DatabaseReference userDbRef;
     private static ActionCodeSettings actionCodeSettings;
     private static CredentialManager credentialManager;
+    private static ClearCredentialStateRequest clearCredentialStateRequest;
     private static GetCredentialRequest request;
 
     public static void setup(Context context) {
@@ -55,6 +57,9 @@ public class FirebaseUtil {
 
         // Create a credentialManager
         credentialManager = CredentialManager.create(context);
+
+        // Create a clearCredentialStateRequest - For logout
+        clearCredentialStateRequest = new ClearCredentialStateRequest(ClearCredentialStateRequest.TYPE_CLEAR_CREDENTIAL_STATE);
     }
 
     public static CredentialManager getCredentialManager() {
@@ -84,4 +89,6 @@ public class FirebaseUtil {
     public static ActionCodeSettings getActionCodeSettings() {
         return actionCodeSettings;
     }
+
+    public static ClearCredentialStateRequest getClearCredentialStateRequest() { return clearCredentialStateRequest; }
 }

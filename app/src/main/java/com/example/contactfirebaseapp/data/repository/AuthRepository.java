@@ -13,7 +13,6 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.credentials.ClearCredentialStateRequest;
 import androidx.credentials.Credential;
 import androidx.credentials.CredentialManagerCallback;
 import androidx.credentials.CustomCredential;
@@ -52,7 +51,7 @@ public class AuthRepository {
     public static void logout(result callback) {
         FirebaseUtil.getCredentialManager()
                 .clearCredentialStateAsync(
-                    new ClearCredentialStateRequest(ClearCredentialStateRequest.TYPE_CLEAR_CREDENTIAL_STATE),
+                    FirebaseUtil.getClearCredentialStateRequest(),
                     null,
                     executor,
                         new CredentialManagerCallback<>() {

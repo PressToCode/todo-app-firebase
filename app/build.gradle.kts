@@ -37,6 +37,7 @@ android {
 
 dependencies {
 
+    implementation(libs.core.splashscreen)
     implementation(libs.googleid)
     implementation(libs.credentials.play.services.auth)
     implementation(libs.credentials)

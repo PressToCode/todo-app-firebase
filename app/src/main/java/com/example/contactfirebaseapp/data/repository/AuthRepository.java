@@ -78,10 +78,11 @@ public class AuthRepository {
 
     // End of Logout -----------
 
-    public static void registerWithEmailAndPassword(Context context, String email, String password) {
+    public static void registerWithEmailAndPassword(Context context, String email, String password, result callback) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
                 Toast.makeText(context, "Register Complete", Toast.LENGTH_SHORT).show();
+                callback.onResult(true);
                 return;
             }
 

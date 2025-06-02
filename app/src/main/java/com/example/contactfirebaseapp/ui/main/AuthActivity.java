@@ -128,7 +128,11 @@ public class AuthActivity extends AppCompatActivity {
 
             // If Registering
             if (registerMode) {
-                AuthRepository.registerWithEmailAndPassword(AuthActivity.this, email, password);
+                AuthRepository.registerWithEmailAndPassword(AuthActivity.this, email, password, success -> {
+                    if (success) {
+                        AuthRepository.loginWithEmailAndPassword(AuthActivity.this, email, password);
+                    }
+                });
                 return;
             }
 

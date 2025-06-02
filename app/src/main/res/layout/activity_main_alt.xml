@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_alt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".ui.main.MainActivity">
+
+    <!-- App Bar with collapsing greeting and card -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/beige"
+        android:fitsSystemWindows="true"
+        android:theme="@style/Theme.Material3.DayNight">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/beige"
+            app:layout_collapseMode="parallax"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="20dp">
+
+                <!-- Greeting Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnMainBackAlt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Back"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/baseline_navigate_before_24"
+                        app:tint="@color/blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_mono"
+                        android:text="Homepage"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_greeting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_mono"
+                            android:text="Hey, [Name]!"
+                            android:textColor="@color/blue"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/text_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/roboto_mono"
+                            android:text="Add New To-Do List\nand Sync Across Devices!"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/buttonProfileAlt"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/baseline_account_circle_24"
+                        android:backgroundTint="@color/blue"
+                        android:cropToPadding="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!-- Scrollable content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_rectangle_top"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/scroll_container_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp">
+
+            <!-- Filter Buttons -->
+            <TextView
+                android:id="@+id/titleMainTextAlt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/roboto_mono_bold"
+                android:paddingStart="4dp"
+                android:text="Your List"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/mainButtonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/buttonDeleteModeAlt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_rectangle"
+                    android:contentDescription="Delete Contact Mode"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    app:tint="@color/blue" />
+
+                <ImageButton
+                    android:id="@+id/buttonAddAlt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_rectangle"
+                    android:contentDescription="Add Contact"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_input_add"
+                    app:tint="@color/blue" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_alt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:nestedScrollingEnabled="true"
+                tools:listitem="@layout/item_contact" />
+
+            <!-- RecyclerView (Your data list) -->
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

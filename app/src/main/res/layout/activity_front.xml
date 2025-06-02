@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono_bold"
-            android:text="c_ON_tact"
+            android:text="To_Do"
             android:textAlignment="center"
             android:textColor="@color/blue"
             android:textSize="55dp" />

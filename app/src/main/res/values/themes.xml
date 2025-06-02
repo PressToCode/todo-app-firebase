@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.ContactFirebaseApp" parent="Base.Theme.ContactFirebaseApp" />
+
+    <style name="Theme.ContactFirebaseApp.Splash" parent="Theme.SplashScreen">
+        <!-- REMOVE icon and branding -->
+        <item name="windowSplashScreenAnimatedIcon">@color/transparent</item>
+
+        <!-- Set your custom background layout -->
+        <item name="windowSplashScreenBackground">@color/beige</item>
+        <item name="android:windowBackground">@color/beige</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.ContactFirebaseApp</item>
+    </style>
 </resources>

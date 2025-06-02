@@ -45,6 +45,7 @@
             android:label="@string/title_activity_main" />
         <activity
             android:name=".ui.main.FrontActivity"
+            android:theme="@style/Theme.ContactFirebaseApp.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

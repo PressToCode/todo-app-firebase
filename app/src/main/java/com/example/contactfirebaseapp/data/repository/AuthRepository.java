@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,6 +38,7 @@ import java.util.concurrent.Executors;
 public class AuthRepository {
     private static final FirebaseAuth auth = FirebaseUtil.getAuth();
     private static final Executor executor = Executors.newSingleThreadExecutor();
+    private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
     public static Boolean checkLoginStatus() {
         // Guard Clause
@@ -126,7 +129,9 @@ public class AuthRepository {
 
                     @Override
                     public void onError(@NonNull GetCredentialException e) {
-                        Toast.makeText(context, "Google Log-in Failed", Toast.LENGTH_LONG).show();
+                        executor.execute(() -> {
+                            mainThreadHandler.post(() -> Toast.makeText(context, "Google Log-in Failed", Toast.LENGTH_LONG).show());
+                        });
                     }
                 });
     }

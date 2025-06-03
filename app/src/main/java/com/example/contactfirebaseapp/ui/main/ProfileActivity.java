@@ -79,12 +79,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         assert user != null;
         userIdText.setText(user.getUid());
-        if (Objects.requireNonNull(user.getDisplayName()).isBlank()) {
+        if (user.isAnonymous()) {
+            nameText.setText("Guest");
+        } else if (Objects.requireNonNull(user.getDisplayName()).isBlank()) {
             nameText.setText(Objects.requireNonNull(user.getEmail()).split("@")[0] + " (Email)");
         } else {
             nameText.setText(user.getDisplayName());
         }
-        emailText.setText(user.getEmail());
+
+        if (user.isAnonymous()) {
+            emailText.setText("Anonymous");
+        } else {
+            emailText.setText(user.getEmail());
+        }
         statusText.setText(user.isEmailVerified() ? "Verified" : "Not Verified");
 
         if(user.isAnonymous()) {

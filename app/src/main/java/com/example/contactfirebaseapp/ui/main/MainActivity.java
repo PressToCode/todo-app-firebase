@@ -99,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
     private void setGreeting() {
         // Get User name and set the name for greeting
         String name;
-        if (Objects.requireNonNull(Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getDisplayName()).isEmpty()) {
+        if (Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).isAnonymous()) {
+            name = "guest";
+        } else if (Objects.requireNonNull(Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getDisplayName()).isEmpty()) {
             String email = Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getEmail();
             assert email != null;
             name = email.split("@")[0];

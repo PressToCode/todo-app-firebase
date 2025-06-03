@@ -13,7 +13,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="firebase_database_ref">Contacts</string>
+    <string name="firebase_database_ref">Todos</string>
+    <string name="firebase_database_profile_ref">Profile</string>
     <string name="firebase_url">https://android-firebase-test-pam.firebaseapp.com</string>
     <string name="firebase_web_client_id">360019579818-aff4t16v5ekv6upep214d03bicqlecki.apps.googleusercontent.com</string>
 </resources>

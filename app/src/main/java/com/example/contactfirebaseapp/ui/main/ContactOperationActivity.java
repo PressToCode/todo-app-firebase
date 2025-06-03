@@ -8,15 +8,12 @@
  */
 package com.example.contactfirebaseapp.ui.main;
 
-import static android.view.View.VISIBLE;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,10 +30,8 @@ import com.example.contactfirebaseapp.utils.Validator;
 public class ContactOperationActivity extends AppCompatActivity {
     // Variables
     ImageButton backBtn;
-    Button editBtn, cancelBtn, submitBtn;
-    EditText nameField, emailField, phoneField;
-    TextView statusText;
-    Boolean updateMode = false;
+    Button saveBtn;
+    EditText noteTitle, noteDescription;
     String id;
 
     @Override
@@ -57,63 +52,31 @@ public class ContactOperationActivity extends AppCompatActivity {
 
         // Initialization
         backBtn = findViewById(R.id.btnBack);
-        editBtn = findViewById(R.id.btnEdit);
-        cancelBtn = findViewById(R.id.btnCancel);
-        submitBtn = findViewById(R.id.btnSubmit);
-        nameField = findViewById(R.id.edtName);
-        emailField = findViewById(R.id.edtEmail);
-        phoneField = findViewById(R.id.edtPhone);
-        statusText = findViewById(R.id.statusText);
+        saveBtn = findViewById(R.id.saveButton);
+        noteTitle = findViewById(R.id.noteTitle);
+        noteDescription = findViewById(R.id.noteDescription);
 
         // Check if Intent has data to be passed (update mode)
         if(getIntent().hasExtra("id")) {
-            updateMode = true;
             id = getIntent().getStringExtra("id");
+            noteTitle.setText(getIntent().getStringExtra("title"));
+            noteDescription.setText(getIntent().getStringExtra("description"));
         }
-
-        // Update UI based on operation mode
-        updateUI();
 
         // Button Listener Behavior
         initializeButtons();
     }
 
-    private void updateUI() {
-        // Guard Clause
-        if(updateMode) {
-            nameField.setText(getIntent().getStringExtra("name"));
-            emailField.setText(getIntent().getStringExtra("email"));
-            phoneField.setText(getIntent().getStringExtra("phone"));
-            setEditMode(false);
-            return;
-        }
-
-        submitBtn.setVisibility(VISIBLE);
-    }
-
     @SuppressLint("SetTextI18n")
     private void initializeButtons() {
-        // Only attach when update mode
-        if(updateMode) {
-            // Edit Button
-            editBtn.setOnClickListener(v -> setEditMode(true));
-
-            // Cancel Button
-            cancelBtn.setOnClickListener(v -> {
-                setEditMode(false);
-                statusText.setText("Unsaved Progress..");
-            });
-        }
-
-        submitBtn.setOnClickListener(v -> {
-            String name, email, phone;
-            name = nameField.getText().toString();
-            email = emailField.getText().toString();
-            phone = phoneField.getText().toString();
+        saveBtn.setOnClickListener(v -> {
+            String title, description;
+            title = noteTitle.getText().toString();
+            description = noteDescription.getText().toString();
 
             // Guard Clause
-            if(Validator.stringHasBlank(name, email, phone)) {
-                statusText.setText("Failed! Check Field Again!");
+            if(Validator.stringHasBlank(title)) {
+                Toast.makeText(this, "Title cannot be blank", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -122,23 +85,11 @@ public class ContactOperationActivity extends AppCompatActivity {
                 id = ContactRepository.newEntry();
             }
 
-            statusText.setText("");
-            Contact contact = new Contact(id, name, email, phone);
+            Contact contact = new Contact(id, title, description);
             ContactRepository.updateDatabase(contact);
             finish();
         });
 
         backBtn.setOnClickListener(v -> finish());
-    }
-
-    // Purely Visual
-    private void setEditMode(boolean enabled) {
-        nameField.setEnabled(enabled);
-        emailField.setEnabled(enabled);
-        phoneField.setEnabled(enabled);
-
-        editBtn.setVisibility(enabled ? View.GONE : View.VISIBLE);
-        cancelBtn.setVisibility(enabled ? View.VISIBLE : View.GONE);
-        submitBtn.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 }

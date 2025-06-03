@@ -6,19 +6,17 @@ package com.example.contactfirebaseapp.data.model;
 
 public class Contact {
     private String id;
-    private String name;
-    private String email;
-    private String phone;
+    private String title;
+    private String description;
 
     public Contact() {
         // ...
     }
 
-    public Contact(String id, String name, String email, String phone) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+    public Contact(String id, String title, String description) {
+        setId(id);
+        setTitle(title);
+        setDescription(description);
     }
 
     public String getId() {
@@ -29,27 +27,15 @@ public class Contact {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getShortDescription() {
+        if(this.description.length() <= 40) {
+            return this.description;
+        }
+        return this.description.substring(0, 40) + "...";
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-//    public void setPhone(String phone) {
-//        this.phone = phone;
-//    }
 }

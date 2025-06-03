@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             app:contentScrim="@color/beige"
             app:layout_collapseMode="parallax"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -96,7 +96,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/roboto_mono"
-                            android:text="Add New To-Do List\nand Sync Across Devices!"
+                            android:text="Add New Notes\nSync Across Devices!"
                             android:textColor="@color/blue"
                             android:textSize="12sp" />
                     </LinearLayout>

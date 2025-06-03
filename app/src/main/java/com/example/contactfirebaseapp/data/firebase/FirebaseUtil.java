@@ -23,7 +23,9 @@ import java.util.Objects;
 public class FirebaseUtil {
     private static final FirebaseAuth auth = FirebaseAuth.getInstance();
     private static DatabaseReference dbRef;
+//    private static DatabaseReference profileRef;
     private static DatabaseReference userDbRef;
+//    private static DatabaseReference userProfileRef;
     private static ActionCodeSettings actionCodeSettings;
     private static CredentialManager credentialManager;
     private static ClearCredentialStateRequest clearCredentialStateRequest;
@@ -32,6 +34,7 @@ public class FirebaseUtil {
     public static void setup(Context context) {
         // Build Database Reference
         dbRef = FirebaseDatabase.getInstance().getReference(context.getString(R.string.firebase_database_ref));
+//        profileRef = FirebaseDatabase.getInstance().getReference(context.getString(R.string.firebase_database_profile_ref));
 
         // Build actionCodeSettings
         actionCodeSettings = ActionCodeSettings.newBuilder()
@@ -39,12 +42,6 @@ public class FirebaseUtil {
                 .setHandleCodeInApp(true)
                 .setAndroidPackageName(context.getPackageName(), true, "12")
                 .build();
-
-        // Build Google Request Object
-//        GetGoogleIdOption googleIdOption = new GetGoogleIdOption.Builder()
-//                .setFilterByAuthorizedAccounts(true)
-//                .setServerClientId(context.getString(R.string.firebase_web_client_id))
-//                .build();
 
         GetSignInWithGoogleOption signInWithGoogleOption = new GetSignInWithGoogleOption
                 .Builder(context.getString(R.string.firebase_web_client_id))
@@ -81,6 +78,14 @@ public class FirebaseUtil {
     public static DatabaseReference getUserDatabase() {
         return userDbRef;
     }
+
+//    public static void setUserProfileRef() {
+//        userProfileRef = profileRef.child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+//    }
+//
+//    public static DatabaseReference getUserProfileRef() {
+//        return userProfileRef;
+//    }
 
     public static void reset() {
         userDbRef = null;

@@ -77,10 +77,8 @@ public class MainActivity extends AppCompatActivity {
         profileButton = findViewById(R.id.buttonProfileAlt);
         deleteButton = findViewById(R.id.buttonDeleteModeAlt);
 
-        // Get User name and set the name for greeting
-        String email = Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getEmail();
-        String name = email.split("@")[0];
-        greeting.setText("Hey, " + name + "!");
+        // set Greeting
+        setGreeting();
 
         // Initialize Recycler View Height Dynamically
         renderRecycler();
@@ -96,6 +94,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Button Behavior
         initializeButtons();
+    }
+
+    private void setGreeting() {
+        // Get User name and set the name for greeting
+        String name;
+        if (Objects.requireNonNull(Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getDisplayName()).isEmpty()) {
+            String email = Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getEmail();
+            assert email != null;
+            name = email.split("@")[0];
+        } else {
+            name = FirebaseUtil.getAuth().getCurrentUser().getDisplayName();
+        }
+
+        greeting.setText("Hey, " + name + "!");
     }
 
     private void initializeButtons() {

@@ -6,11 +6,7 @@
 
 package com.example.contactfirebaseapp.data.repository;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,10 +14,6 @@ import androidx.annotation.NonNull;
 import com.example.contactfirebaseapp.data.firebase.FirebaseUtil;
 import com.example.contactfirebaseapp.data.model.Contact;
 import com.example.contactfirebaseapp.ui.adapter.ContactAdapter;
-import com.example.contactfirebaseapp.ui.main.MainActivity;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthProvider;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;

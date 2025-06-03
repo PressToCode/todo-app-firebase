@@ -30,6 +30,8 @@ import com.example.contactfirebaseapp.data.repository.AuthRepository;
 import com.example.contactfirebaseapp.utils.Validator;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class ProfileActivity extends AppCompatActivity {
     // Variables
     ImageButton backBtn;
@@ -77,7 +79,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         assert user != null;
         userIdText.setText(user.getUid());
-        nameText.setText(user.getDisplayName());
+        if (Objects.requireNonNull(user.getDisplayName()).isBlank()) {
+            nameText.setText(Objects.requireNonNull(user.getEmail()).split("@")[0] + " (Email)");
+        } else {
+            nameText.setText(user.getDisplayName());
+        }
         emailText.setText(user.getEmail());
         statusText.setText(user.isEmailVerified() ? "Verified" : "Not Verified");
 

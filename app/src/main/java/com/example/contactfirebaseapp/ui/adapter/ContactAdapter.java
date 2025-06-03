@@ -41,15 +41,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     }
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
-        TextView name, email, phone;
+        TextView title, description;
         ImageView profile;
 
         public ContactViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.textName);
-            email = itemView.findViewById(R.id.textEmail);
-            phone = itemView.findViewById(R.id.textPhone);
-            profile = itemView.findViewById(R.id.imageProfile);
+            title = itemView.findViewById(R.id.textTitle);
+            description = itemView.findViewById(R.id.textDescription);
+            profile = itemView.findViewById(R.id.imagePlaceholder);
         }
     }
 
@@ -57,17 +56,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         void onContactOpen(Contact contact) {
             Intent intent = new Intent(context, ContactOperationActivity.class);
             intent.putExtra("id", contact.getId());
-            intent.putExtra("name", contact.getName());
-            intent.putExtra("email", contact.getEmail());
-            intent.putExtra("phone", contact.getPhone());
+            intent.putExtra("title", contact.getTitle());
+            intent.putExtra("description", contact.getDescription());
 
             context.startActivity(intent);
         }
 
         void onContactDelete(Contact contact, int pos) {
             new AlertDialog.Builder(context)
-                    .setTitle("Delete Contact")
-                    .setMessage("Are you sure you want to delete " + contact.getName() + "?")
+                    .setTitle("Delete Note")
+                    .setMessage("Are you sure you want to delete \"" + contact.getTitle() + "\" Note?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         contactList.remove(pos);
                         notifyItemRemoved(pos);
@@ -96,9 +94,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
         Contact contact = contactList.get(position);
 
-        holder.name.setText(contact.getName());
-        holder.email.setText(contact.getEmail());
-        holder.phone.setText(contact.getPhone());
+        holder.title.setText(contact.getTitle());
+        holder.description.setText(contact.getShortDescription());
 
         holder.itemView.setOnClickListener(v -> {
             if(redirect == null) { return; }

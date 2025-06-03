@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono_bold"
-            android:text="To_Do"
+            android:text="No_TES"
             android:textAlignment="center"
             android:textColor="@color/blue"
             android:textSize="55dp" />
@@ -67,8 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto_mono"
             android:text="Log In"
             android:textColor="@color/blue"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:strokeColor="@color/blue" />
 
@@ -78,8 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto_mono"
             android:text="Register"
             android:textColor="@color/blue"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:strokeColor="@color/blue" />
 

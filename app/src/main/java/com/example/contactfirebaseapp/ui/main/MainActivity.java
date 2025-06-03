@@ -32,6 +32,7 @@ import com.example.contactfirebaseapp.data.model.Contact;
 import com.example.contactfirebaseapp.data.repository.AuthRepository;
 import com.example.contactfirebaseapp.data.repository.ContactRepository;
 import com.example.contactfirebaseapp.ui.adapter.ContactAdapter;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,14 +100,18 @@ public class MainActivity extends AppCompatActivity {
     private void setGreeting() {
         // Get User name and set the name for greeting
         String name;
-        if (Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).isAnonymous()) {
+        FirebaseUser user = FirebaseUtil.getAuth().getCurrentUser();
+        if (user == null) {
+            finish();
+        }
+
+        if (user.isAnonymous()) {
             name = "guest";
-        } else if (Objects.requireNonNull(Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getDisplayName()).isEmpty()) {
-            String email = Objects.requireNonNull(FirebaseUtil.getAuth().getCurrentUser()).getEmail();
-            assert email != null;
+        } else if (user.getDisplayName() == null || user.getDisplayName().isEmpty()) {
+            String email = user.getEmail();
             name = email.split("@")[0];
         } else {
-            name = FirebaseUtil.getAuth().getCurrentUser().getDisplayName();
+            name = user.getDisplayName();
         }
 
         greeting.setText("Hey, " + name + "!");

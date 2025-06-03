@@ -77,12 +77,15 @@ public class ProfileActivity extends AppCompatActivity {
     private void updateUI() {
         FirebaseUser user = FirebaseUtil.getAuth().getCurrentUser();
 
-        assert user != null;
+        if (user == null) {
+            finish();
+        }
+
         userIdText.setText(user.getUid());
         if (user.isAnonymous()) {
             nameText.setText("Guest");
-        } else if (Objects.requireNonNull(user.getDisplayName()).isBlank()) {
-            nameText.setText(Objects.requireNonNull(user.getEmail()).split("@")[0] + " (Email)");
+        } else if (user.getDisplayName() == null || user.getDisplayName().isBlank()) {
+            nameText.setText(user.getEmail().split("@")[0] + " (Email)");
         } else {
             nameText.setText(user.getDisplayName());
         }
